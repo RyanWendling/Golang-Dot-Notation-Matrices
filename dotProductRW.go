@@ -1,7 +1,7 @@
 /*Ryan Wendling
 10/ 06/ 2017
 dotProduct.RW.go
-The purpose of this program is to take into two matrix files and perform dot notation to print out the new combined matrix */
+The purpose of this program is to take in two matrix files and perform dot notation to print out the new combined matrix */
 
 package main
 
@@ -31,22 +31,19 @@ func ReadInts(r io.Reader) ([][]int, error) {
 	for scanner.Scan() {
 		var result []int
 		line := scanner.Text()
-		//fmt.Println("this line  " + string(line))
+
 		// Split the line on spaces.
 		parts := strings.Split(line, " ")
 
 		// Loop over the parts from the string.
 		for i := range parts {
-			//fmt.Println(parts[i])
 			x, err := strconv.Atoi(parts[i])
 			if err != nil {
 				return resultTwo, err
 			}
 			result = append(result, x)
 		}
-		//fmt.Println(result)
 		resultTwo = append(resultTwo, result)
-		//result = append(result, x)
 	}
 	return resultTwo, scanner.Err()
 }
@@ -68,12 +65,10 @@ func main() {
 
 	dat, err := ioutil.ReadFile(input)
 	check(err)
-	//fmt.Print(string(dat))
 	s := string(dat)
 
 	dat2, err := ioutil.ReadFile(input2)
 	check(err)
-	//fmt.Print(string(dat2))
 	s2 := string(dat2)
 
 	// Turns our matrix strings into 2d slices
